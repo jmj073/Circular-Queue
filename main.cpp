@@ -10,12 +10,12 @@ class queue {
 public:
 	using size_type = int;
 
-	queue(size_type sz=16)
-		: _size{ sz }
+	queue(size_type sz=15)
+		: _size{ sz + 1 }
 	{
 		if (!sz)
-			throw exception("queueÀÇ »ı¼ºÀÚ¿¡´Â 0ÀÌ ¿Ã¼ö ¾ø½À´Ï´Ù");
-		elem = new T[sz];
+			throw exception("queueì˜ ìƒì„±ìì—ëŠ” 0ì´ ì˜¬ìˆ˜ ì—†ìŠµë‹ˆë‹¤");
+		elem = new T[sz + 1];
 	}
 
 	void enqueue(const T& new_data);
@@ -28,11 +28,11 @@ public:
 		return front == reor;
 	}
 	size_type size() const {
-		return _size;
+		return _size - 1;
 	}
 
 	~queue() {
-		cout << "¼Ò¸êÀÚ\n";
+		cout << "ì†Œë©¸ì\n";
 		delete[] elem;
 	}
 	
