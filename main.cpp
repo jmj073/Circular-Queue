@@ -13,8 +13,8 @@ public:
 	queue(size_type sz=15)
 		: _size{ sz + 1 }
 	{
-		if (!sz)
-			throw exception("queue의 생성자에는 0이 올수 없습니다");
+		if (sz <= 0)
+			throw exception("queue의 생성자에는 0이하의 수는 올 수 없습니다");
 		elem = new T[sz + 1];
 	}
 
